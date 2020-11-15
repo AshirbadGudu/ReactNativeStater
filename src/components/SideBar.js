@@ -79,6 +79,19 @@ const SideBar = (props) => {
           </Drawer.Section>
           <Drawer.Section>
             <DrawerItem
+              label="About"
+              icon={({color, size}) => (
+                <Icon
+                  name="information-circle-outline"
+                  color={color}
+                  size={size}
+                />
+              )}
+              onPress={() => props.navigation.navigate('About')}
+            />
+          </Drawer.Section>
+          <Drawer.Section>
+            <DrawerItem
               label="Feedback"
               icon={({color, size}) => (
                 <Icon
