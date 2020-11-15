@@ -105,6 +105,15 @@ const SideBar = (props) => {
           </Drawer.Section>
           <Drawer.Section>
             <DrawerItem
+              label="Support"
+              icon={({color, size}) => (
+                <Icon name="help-circle-outline" color={color} size={size} />
+              )}
+              onPress={() => props.navigation.navigate('Support')}
+            />
+          </Drawer.Section>
+          <Drawer.Section>
+            <DrawerItem
               label="Share"
               icon={({color, size}) => (
                 <Icon name="share-social-outline" color={color} size={size} />
@@ -121,15 +130,15 @@ const SideBar = (props) => {
               onPress={handelExit}
             />
           </Drawer.Section>
+          <Drawer.Section>
+            <DrawerItem
+              label="Sign Out"
+              icon={({color, size}) => (
+                <Icon name="log-out-outline" color={color} size={size} />
+              )}
+            />
+          </Drawer.Section>
         </DrawerContentScrollView>
-        <Drawer.Section>
-          <DrawerItem
-            label="Sign Out"
-            icon={({color, size}) => (
-              <Icon name="log-out-outline" color={color} size={size} />
-            )}
-          />
-        </Drawer.Section>
       </View>
     </>
   );

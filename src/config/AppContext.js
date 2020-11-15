@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useReducer, useState} from 'react';
+import {Linking, Platform} from 'react-native';
 
 // Create Context For Application
 const AppContext = React.createContext();
@@ -19,6 +20,16 @@ const reducer = (state, action) => {
 export const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(false);
   const [user, setUserDetails] = useReducer(reducer, null);
+  const handelCall = () => {
+    const number = '7008614546';
+    let phoneNumber = '';
+    if (Platform.OS === 'android') {
+      phoneNumber = `tel:${number}`;
+    } else {
+      phoneNumber = `telprompt:${number}`;
+    }
+    Linking.openURL(phoneNumber);
+  };
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
@@ -28,6 +39,6 @@ export const AuthProvider = ({children}) => {
   }, []);
 
   // Context Data That Need In Application
-  const value = {loading, user};
+  const value = {loading, user, handelCall};
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

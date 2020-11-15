@@ -3,7 +3,6 @@ import {Image, View, ScrollView, Linking} from 'react-native';
 import {List, Paragraph, Subheading, Title} from 'react-native-paper';
 import Topbar from '../components/Topbar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {COLORS} from '../config/Colors';
 import {ABOUT_APP} from '../config/Data';
 const About = (props) => {
   return (
