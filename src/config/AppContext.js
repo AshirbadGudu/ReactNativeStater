@@ -17,10 +17,13 @@ const reducer = (state, action) => {
   }
 };
 export const AuthProvider = ({children}) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [user, setUserDetails] = useReducer(reducer, null);
   useEffect(() => {
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(true);
+    }, 2000);
+
     setUserDetails({type: 'setNewUser', payload: {uid: 'uid'}});
   }, []);
 

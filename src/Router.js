@@ -1,11 +1,15 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 import {useAppContext} from './config/AppContext';
+import {NavigationContainer} from '@react-navigation/native';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 const Router = () => {
   const {user} = useAppContext();
   return (
-    <View>{user ? <Text>Private Route</Text> : <Text>Public Route</Text>}</View>
+    <NavigationContainer>
+      {user ? <PrivateRoute /> : <PublicRoute />}
+    </NavigationContainer>
   );
 };
 
