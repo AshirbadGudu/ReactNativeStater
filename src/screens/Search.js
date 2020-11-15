@@ -2,10 +2,13 @@ import React from 'react';
 import {View} from 'react-native';
 import Topbar from '../components/Topbar';
 
-const Search = () => {
+const Search = (props) => {
   return (
     <View>
-      <Topbar title={'Search'} />
+      <Topbar
+        title={'Search'}
+        left={{onPress: () => props.navigation.toggleDrawer()}}
+      />
     </View>
   );
 };

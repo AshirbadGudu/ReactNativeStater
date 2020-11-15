@@ -5,7 +5,10 @@ import Topbar from '../components/Topbar';
 const Home = (props) => {
   return (
     <View>
-      <Topbar title={'Home'} />
+      <Topbar
+        title={'Home'}
+        left={{onPress: () => props.navigation.toggleDrawer()}}
+      />
     </View>
   );
 };

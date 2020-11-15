@@ -2,10 +2,13 @@ import React from 'react';
 import {View} from 'react-native';
 import Topbar from '../components/Topbar';
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <View>
-      <Topbar title={'Profile'} />
+      <Topbar
+        title={'Profile'}
+        left={{onPress: () => props.navigation.toggleDrawer()}}
+      />
     </View>
   );
 };

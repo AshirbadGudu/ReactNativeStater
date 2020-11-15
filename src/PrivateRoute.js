@@ -9,34 +9,37 @@ const Tab = createMaterialBottomTabNavigator();
 
 const PrivateRoute = () => {
   return (
-    <Tab.Navigator barStyle={{backgroundColor: COLORS.SECONDARY}}>
+    <Tab.Navigator shifting={true}>
       <Tab.Screen
-        name="Home"
+        name="HomeTab"
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'HOME',
           tabBarIcon: ({color}) => (
             <AntDesign name="home" color={color} size={26} />
           ),
+          tabBarColor: COLORS.TAB1,
         }}
         component={HomeStack}
       />
       <Tab.Screen
-        name="Search"
+        name="SearchTab"
         options={{
-          tabBarLabel: 'Search',
+          tabBarLabel: 'SEARCH',
           tabBarIcon: ({color}) => (
             <AntDesign name="search1" color={color} size={26} />
           ),
+          tabBarColor: COLORS.TAB2,
         }}
         component={SearchStack}
       />
       <Tab.Screen
         name="ProfileTab"
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'PROFILE',
           tabBarIcon: ({color}) => (
             <AntDesign name="user" color={color} size={26} />
           ),
+          tabBarColor: COLORS.TAB3,
         }}
         component={ProfileStack}
       />
