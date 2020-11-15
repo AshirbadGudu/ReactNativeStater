@@ -79,6 +79,19 @@ const SideBar = (props) => {
           </Drawer.Section>
           <Drawer.Section>
             <DrawerItem
+              label="Feedback"
+              icon={({color, size}) => (
+                <Icon
+                  name="chatbox-ellipses-outline"
+                  color={color}
+                  size={size}
+                />
+              )}
+              onPress={() => props.navigation.navigate('Feedback')}
+            />
+          </Drawer.Section>
+          <Drawer.Section>
+            <DrawerItem
               label="Share"
               icon={({color, size}) => (
                 <Icon name="share-social-outline" color={color} size={size} />

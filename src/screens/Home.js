@@ -1,7 +1,7 @@
 import React from 'react';
-
 import MyCarousel from '../components/MyCarousel';
 import Topbar from '../components/Topbar';
+import FloatingCTA from '../components/FloatingCTA';
 
 const data = [
   {
@@ -39,6 +39,7 @@ const Home = (props) => {
         left={{onPress: () => props.navigation.toggleDrawer()}}
       />
       <MyCarousel data={data} />
+      <FloatingCTA />
     </>
   );
 };

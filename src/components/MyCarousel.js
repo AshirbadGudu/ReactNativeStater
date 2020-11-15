@@ -11,7 +11,7 @@ const MyCarousel = (props) => {
   useEffect(() => {
     setEntries(props.data);
   }, []);
-  console.log(props.data);
+
   const renderItem = ({item, index}, parallaxProps) => {
     return (
       <View style={styles.item}>
