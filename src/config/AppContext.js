@@ -22,7 +22,7 @@ export const AuthProvider = ({children}) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
-    }, 2000);
+    }, 4000);
 
     setUserDetails({type: 'setNewUser', payload: {uid: 'uid'}});
   }, []);

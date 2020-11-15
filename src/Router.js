@@ -5,23 +5,32 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import SideBar from './components/SideBar';
-
+import AnimatedSplash from 'react-native-animated-splash-screen';
+import {COLORS} from './config/Colors';
 const Drawer = createDrawerNavigator();
 
 const Router = () => {
-  const {user} = useAppContext();
+  const {user, loading} = useAppContext();
   return (
-    <NavigationContainer>
-      {user ? (
-        <Drawer.Navigator
-          screenOptions={{headerShown: false}}
-          drawerContent={(props) => <SideBar {...props} />}>
-          <Drawer.Screen name="PrivateRoute" component={PrivateRoute} />
-        </Drawer.Navigator>
-      ) : (
-        <PublicRoute />
-      )}
-    </NavigationContainer>
+    <AnimatedSplash
+      translucent={false}
+      isLoaded={loading}
+      logoImage={require('./assets/icon.png')}
+      backgroundColor={COLORS.PRIMARY}
+      logoHeight={150}
+      logoWidth={150}>
+      <NavigationContainer>
+        {user ? (
+          <Drawer.Navigator
+            screenOptions={{headerShown: false}}
+            drawerContent={(props) => <SideBar {...props} />}>
+            <Drawer.Screen name="PrivateRoute" component={PrivateRoute} />
+          </Drawer.Navigator>
+        ) : (
+          <PublicRoute />
+        )}
+      </NavigationContainer>
+    </AnimatedSplash>
   );
 };
 

@@ -1,7 +1,7 @@
 export const COLORS = {
-  PRIMARY: '#045DE9',
+  PRIMARY: '#23235F',
   SECONDARY: '#2A2A72',
-  TAB1: '#0455A5',
-  TAB2: '#0455C0',
-  TAB3: '#045599',
+  LIGHT: '#313185',
+  LIGHTER: '#383897',
+  SOFTER: '#3F3FAA',
 };

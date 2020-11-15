@@ -17,7 +17,7 @@ const PrivateRoute = () => {
           tabBarIcon: ({color}) => (
             <AntDesign name="home" color={color} size={26} />
           ),
-          tabBarColor: COLORS.TAB1,
+          tabBarColor: COLORS.LIGHT,
         }}
         component={HomeStack}
       />
@@ -28,7 +28,7 @@ const PrivateRoute = () => {
           tabBarIcon: ({color}) => (
             <AntDesign name="search1" color={color} size={26} />
           ),
-          tabBarColor: COLORS.TAB2,
+          tabBarColor: COLORS.LIGHTER,
         }}
         component={SearchStack}
       />
@@ -39,7 +39,7 @@ const PrivateRoute = () => {
           tabBarIcon: ({color}) => (
             <AntDesign name="user" color={color} size={26} />
           ),
-          tabBarColor: COLORS.TAB3,
+          tabBarColor: COLORS.SOFTER,
         }}
         component={ProfileStack}
       />
