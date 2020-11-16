@@ -1,5 +1,7 @@
 # React Native Stater App
 
+[<img src="https://reactnative.dev/img/favicon.ico" width="150"/>](https://reactnative.dev)
+
 ## Open Android Emulator
 
 - `cd %ANDROID_HOME%/tools && emulator -avd Pixel_2_API_26`
@@ -30,7 +32,7 @@
 
 ### With npm
 
--`npm i react-native-vector-icons`
+- `npm i react-native-vector-icons`
 
 ### Change App Build Gradle File
 
@@ -40,15 +42,16 @@
 
 ## Use React Navigation 5 In App
 
-- ```yarn add
-        react-native-reanimated
-        react-native-gesture-handler
-        react-native-screens
-        react-native-safe-area-context
-        @react-navigation/native
-        @react-native-community/masked-view
-        @react-navigation/drawer
-        @react-navigation/material-bottom-tabs
-        @react-navigation/stack
-        react-native-paper
-  ```
+```
+yarn add
+       react-native-reanimated
+       react-native-gesture-handler
+       react-native-screens
+       react-native-safe-area-context
+       @react-navigation/native
+       @react-native-community/masked-view
+       @react-navigation/drawer
+       @react-navigation/material-bottom-tabs
+       @react-navigation/stack
+       react-native-paper
+```
