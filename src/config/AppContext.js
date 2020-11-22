@@ -30,15 +30,16 @@ export const AuthProvider = ({children}) => {
     }
     Linking.openURL(phoneNumber);
   };
+  const login = () => {
+    setUserDetails({type: 'setNewUser', payload: {uid: 'uid'}});
+  };
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
     }, 4000);
-
-    setUserDetails({type: 'setNewUser', payload: {uid: 'uid'}});
   }, []);
 
   // Context Data That Need In Application
-  const value = {loading, user, handelCall};
+  const value = {loading, user, handelCall, login};
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

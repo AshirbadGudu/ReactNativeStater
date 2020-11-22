@@ -2,6 +2,7 @@ import React from 'react';
 import HomeStack from './stacks/HomeStack';
 import ProfileStack from './stacks/ProfileStack';
 import SearchStack from './stacks/SearchStack';
+import CartStack from './stacks/CartStack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {COLORS} from './config/Colors';
@@ -42,6 +43,17 @@ const PrivateRoute = () => {
           tabBarColor: COLORS.SOFTER,
         }}
         component={ProfileStack}
+      />
+      <Tab.Screen
+        name="CartTab"
+        options={{
+          tabBarLabel: 'Cart',
+          tabBarIcon: ({color}) => (
+            <AntDesign name="shoppingcart" color={color} size={26} />
+          ),
+          tabBarColor: COLORS.SOFTER,
+        }}
+        component={CartStack}
       />
     </Tab.Navigator>
   );

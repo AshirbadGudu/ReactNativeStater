@@ -1,3 +1,5 @@
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, FlatList} from 'react-native';
 import {
   Left,
   ListItem,
@@ -9,12 +11,9 @@ import {
   Button,
   View,
 } from 'native-base';
-import React, {useEffect, useState} from 'react';
-import {ScrollView} from 'react-native-gesture-handler';
-import Topbar from '../components/Topbar';
 import SearchInput, {createFilter} from 'react-native-search-filter';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {Dimensions} from 'react-native';
+import Topbar from '../components/Topbar';
 const Search = (props) => {
   const [posts, setPosts] = useState([]);
   const [searchTex, setSearchTex] = useState('');
@@ -33,13 +32,7 @@ const Search = (props) => {
         title={'Search'}
         left={{onPress: () => props.navigation.toggleDrawer()}}
       />
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          borderBottomWidth: 1,
-          borderBottomColor: '#ddd',
-        }}>
+      <View style={styles.searchWarper}>
         <Ionicons.Button
           backgroundColor="transparent"
           name="search"
@@ -54,10 +47,12 @@ const Search = (props) => {
         </View>
       </View>
 
-      <ScrollView>
-        <List>
-          {filteredPosts.map((item, key) => (
-            <ListItem thumbnail key={key}>
+      <List>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={filteredPosts}
+          renderItem={({item, index}) => (
+            <ListItem thumbnail key={index}>
               <Left>
                 <Thumbnail square source={{uri: item.thumbnailUrl}} />
               </Left>
@@ -70,11 +65,21 @@ const Search = (props) => {
                 </Button>
               </Right>
             </ListItem>
-          ))}
-        </List>
-      </ScrollView>
+          )}
+          keyExtractor={(item) => `${item.id}`}
+        />
+      </List>
     </>
   );
 };
 
 export default Search;
+
+const styles = StyleSheet.create({
+  searchWarper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+});

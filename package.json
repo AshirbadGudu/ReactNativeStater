@@ -21,6 +21,7 @@
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-animated-splash-screen": "^2.0.5",
+    "react-native-app-intro-slider": "^4.0.4",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-paper": "^4.4.0",
     "react-native-ratings": "^7.3.0",
