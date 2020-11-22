@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useReducer, useState} from 'react';
-import {Linking, Platform} from 'react-native';
+import {Alert, BackHandler, Linking, Platform, Share} from 'react-native';
 
 // Create Context For Application
 const AppContext = React.createContext();
@@ -20,6 +20,32 @@ const reducer = (state, action) => {
 export const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(false);
   const [user, setUserDetails] = useReducer(reducer, null);
+  const handelShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'React Native Stater | A Stater Template for building react native apps.',
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handelExit = () => {
+    Alert.alert(
+      'Exit App',
+      'Are You Sure?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => {},
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => BackHandler.exitApp()},
+      ],
+      {cancelable: true},
+    );
+  };
   const handelCall = () => {
     const number = '7008614546';
     let phoneNumber = '';
@@ -30,9 +56,11 @@ export const AuthProvider = ({children}) => {
     }
     Linking.openURL(phoneNumber);
   };
+
   const login = () => {
     setUserDetails({type: 'setNewUser', payload: {uid: 'uid'}});
   };
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
@@ -40,6 +68,6 @@ export const AuthProvider = ({children}) => {
   }, []);
 
   // Context Data That Need In Application
-  const value = {loading, user, handelCall, login};
+  const value = {loading, user, handelCall, login, handelExit, handelShare};
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

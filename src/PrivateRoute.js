@@ -6,6 +6,7 @@ import CartStack from './stacks/CartStack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {COLORS} from './config/Colors';
+import CategoryStack from './stacks/CategoryStack';
 const Tab = createMaterialBottomTabNavigator();
 
 const PrivateRoute = () => {
@@ -32,6 +33,17 @@ const PrivateRoute = () => {
           tabBarColor: COLORS.LIGHTER,
         }}
         component={SearchStack}
+      />
+      <Tab.Screen
+        name="CategoryTab"
+        options={{
+          tabBarLabel: 'Categories',
+          tabBarIcon: ({color}) => (
+            <AntDesign name="appstore-o" color={color} size={26} />
+          ),
+          tabBarColor: COLORS.SOFTER,
+        }}
+        component={CategoryStack}
       />
       <Tab.Screen
         name="ProfileTab"

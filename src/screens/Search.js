@@ -1,16 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, FlatList} from 'react-native';
-import {
-  Left,
-  ListItem,
-  List,
-  Thumbnail,
-  Body,
-  Text,
-  Right,
-  Button,
-  View,
-} from 'native-base';
+import {StyleSheet, FlatList, View, Image} from 'react-native';
+import {List, Button} from 'react-native-paper';
 import SearchInput, {createFilter} from 'react-native-search-filter';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Topbar from '../components/Topbar';
@@ -47,28 +37,26 @@ const Search = (props) => {
         </View>
       </View>
 
-      <List>
+      <List.Section style={{marginBottom: 100}}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={filteredPosts}
           renderItem={({item, index}) => (
-            <ListItem thumbnail key={index}>
-              <Left>
-                <Thumbnail square source={{uri: item.thumbnailUrl}} />
-              </Left>
-              <Body>
-                <Text>{item.title}</Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
+            <List.Item
+              key={index}
+              left={(props) => (
+                <Image
+                  source={{uri: item.thumbnailUrl}}
+                  style={{resizeMode: 'center', width: 50, height: 50}}
+                />
+              )}
+              title={item.title}
+              right={(props) => <Button onPress={() => {}}>View</Button>}
+            />
           )}
           keyExtractor={(item) => `${item.id}`}
         />
-      </List>
+      </List.Section>
     </>
   );
 };

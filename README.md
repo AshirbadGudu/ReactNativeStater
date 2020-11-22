@@ -48,10 +48,12 @@ yarn add
        react-native-gesture-handler
        react-native-screens
        react-native-safe-area-context
+       react-native-tab-view
        @react-navigation/native
        @react-native-community/masked-view
        @react-navigation/drawer
        @react-navigation/material-bottom-tabs
        @react-navigation/stack
+       @react-navigation/material-top-tabs
        react-native-paper
 ```
