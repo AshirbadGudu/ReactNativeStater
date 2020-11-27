@@ -1,65 +1,73 @@
 import React from 'react';
-import {StyleSheet, View, Image} from 'react-native';
-import {Button, Card, Subheading, Title} from 'react-native-paper';
-import {useAppContext} from '../config/AppContext';
-import {COLORS} from '../config/Colors';
+import { StyleSheet, View, Image, KeyboardAvoidingView, Text } from 'react-native';
+import { Button, Card, TextInput, Title } from 'react-native-paper';
+import { useAppContext } from '../config/AppContext';
+import { COLORS } from '../config/Colors';
 const Login = (props) => {
-  const {login} = useAppContext();
+  const { login } = useAppContext();
 
   return (
     <>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Image
-            source={require('../assets/icon.png')}
-            style={{width: 100, height: 100, resizeMode: 'center'}}
-          />
-        </View>
-        <View style={styles.footer}>
-          <Card style={{padding: 20}}>
-            <Title style={{textAlign: 'center'}}>Welcome To App Name</Title>
-            <Subheading style={{textAlign: 'center'}}>
-              login or sign up to our app
-            </Subheading>
-            <Card.Content>
-              <Button
-                onPress={() => login()}
-                color={COLORS.PRIMARY}
-                style={{marginVertical: 5}}
-                mode="contained">
-                Sign In
+      <KeyboardAvoidingView style={styles.container}>
+        <Card style={{ padding: 20 }}>
+          <Image source={require('../assets/icon.png')} style={{ resizeMode: 'contain', width: '100%', height: '25%' }} />
+          <Title style={{ textAlign: 'center' }}>Login</Title>
+          <Card.Content>
+            <TextInput
+              style={{ marginBottom: 10 }}
+              keyboardType="email-address"
+              mode="outlined"
+              label="Enter Email ID"
+              autoCapitalize="none"
+            />
+            <TextInput
+              style={{ marginBottom: 10 }}
+              secureTextEntry={true}
+              mode="outlined"
+              label="Enter Your Password"
+              autoCapitalize="none"
+            />
+            <View style={styles.Right}>
+              <Button onPress={() => props.navigation.navigate('ForgetPassword')}>
+                Forget Password?
               </Button>
-              <Button
-                onPress={() => {}}
-                color={COLORS.PRIMARY}
-                style={{marginVertical: 5}}
-                mode="outlined">
-                Sign Up
+            </View>
+            <Button
+              onPress={() => login()}
+              color={COLORS.PRIMARY}
+              style={{ marginVertical: 5 }}
+              mode="contained">
+              Sign In
+            </Button>
+            <View style={styles.Row}>
+              <Text>Need an account?</Text>
+              <Button onPress={() => props.navigation.navigate('Register')}>
+                Register Now
               </Button>
-            </Card.Content>
-          </Card>
-        </View>
-      </View>
+            </View>
+          </Card.Content>
+        </Card>
+      </KeyboardAvoidingView>
     </>
   );
 };
 
+export default Login;
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  header: {
-    flex: 1,
+    padding: 20,
     backgroundColor: COLORS.PRIMARY,
-    borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  footer: {
     flex: 1,
-    padding: 30,
+    justifyContent: "center"
   },
+  Right: {
+    alignItems: "flex-end",
+    justifyContent: "flex-end"
+  },
+  Row: {
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
-export default Login;
