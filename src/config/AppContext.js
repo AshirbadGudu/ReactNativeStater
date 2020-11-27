@@ -1,5 +1,5 @@
-import React, {useContext, useEffect, useReducer, useState} from 'react';
-import {Alert, BackHandler, Linking, Platform, Share} from 'react-native';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
+import { Alert, BackHandler, Linking, Platform, Share } from 'react-native';
 
 // Create Context For Application
 const AppContext = React.createContext();
@@ -19,7 +19,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [user, setUserDetails] = useReducer(reducer, null);
   const handelShare = async () => {
@@ -40,12 +40,12 @@ export const AuthProvider = ({children}) => {
       [
         {
           text: 'Cancel',
-          onPress: () => {},
+          onPress: () => { },
           style: 'cancel',
         },
-        {text: 'OK', onPress: () => BackHandler.exitApp()},
+        { text: 'OK', onPress: () => BackHandler.exitApp() },
       ],
-      {cancelable: true},
+      { cancelable: true },
     );
   };
   const handelCall = () => {
@@ -60,10 +60,16 @@ export const AuthProvider = ({children}) => {
   };
 
   const login = () => {
-    setUserDetails({type: 'setNewUser', payload: {uid: 'uid'}});
+    setUserDetails({ type: 'setNewUser', payload: { uid: 'uid' } });
+  };
+  const register = () => {
+    setUserDetails({ type: 'setOldUser', payload: { uid: 'uid' } });
   };
   const logout = () => {
-    setUserDetails({type: 'logout'});
+    setUserDetails({ type: 'logout' });
+  };
+  const forgetPassword = () => {
+
   };
 
   useEffect(() => {
@@ -81,6 +87,8 @@ export const AuthProvider = ({children}) => {
     handelExit,
     handelShare,
     logout,
+    forgetPassword,
+    register
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
