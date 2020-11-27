@@ -3,34 +3,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {Alert, BackHandler, Share, View} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {Avatar, Title, Caption, Drawer} from 'react-native-paper';
+import {useAppContext} from '../config/AppContext';
 
 const SideBar = (props) => {
-  const handelShare = async () => {
-    try {
-      const result = await Share.share({
-        message:
-          'React Native Stater | A Stater Template for building react native apps.',
-      });
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const handelExit = () => {
-    Alert.alert(
-      'Exit App',
-      'Are You Sure?',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => {},
-          style: 'cancel',
-        },
-        {text: 'OK', onPress: () => BackHandler.exitApp()},
-      ],
-      {cancelable: true},
-    );
-  };
+  const {handelExit, handelShare, logout} = useAppContext();
   return (
     <>
       <View
@@ -118,7 +94,7 @@ const SideBar = (props) => {
               icon={({color, size}) => (
                 <Icon name="share-social-outline" color={color} size={size} />
               )}
-              onPress={handelShare}
+              onPress={() => handelShare()}
             />
           </Drawer.Section>
           <Drawer.Section>
@@ -127,12 +103,13 @@ const SideBar = (props) => {
               icon={({color, size}) => (
                 <Icon name="close-outline" color={color} size={size} />
               )}
-              onPress={handelExit}
+              onPress={() => handelExit()}
             />
           </Drawer.Section>
           <Drawer.Section>
             <DrawerItem
               label="Sign Out"
+              onPress={() => logout()}
               icon={({color, size}) => (
                 <Icon name="log-out-outline" color={color} size={size} />
               )}

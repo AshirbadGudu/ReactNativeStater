@@ -13,6 +13,8 @@ const reducer = (state, action) => {
 
     case 'setOldUser':
       return (state = action.payload);
+    case 'logout':
+      return (state = null);
     default:
       return state;
   }
@@ -60,6 +62,9 @@ export const AuthProvider = ({children}) => {
   const login = () => {
     setUserDetails({type: 'setNewUser', payload: {uid: 'uid'}});
   };
+  const logout = () => {
+    setUserDetails({type: 'logout'});
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -68,6 +73,14 @@ export const AuthProvider = ({children}) => {
   }, []);
 
   // Context Data That Need In Application
-  const value = {loading, user, handelCall, login, handelExit, handelShare};
+  const value = {
+    loading,
+    user,
+    handelCall,
+    login,
+    handelExit,
+    handelShare,
+    logout,
+  };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

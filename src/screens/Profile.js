@@ -13,10 +13,11 @@ import Topbar from '../components/Topbar';
 import {useAppContext} from '../config/AppContext';
 
 const Profile = (props) => {
-  const {user, handelExit, handelShare} = useAppContext();
+  const {logout, handelExit, handelShare} = useAppContext();
 
   async function handleLogout() {
     try {
+      logout();
       NativeModules.DevSettings.reload();
     } catch {
       alert('Failed to log out');
