@@ -7,7 +7,7 @@ const Topbar = (props) => {
     <Appbar.Header style={{backgroundColor: COLORS.SECONDARY}}>
       {props.left && (
         <Appbar.Action
-          icon={props.left.icon ? () => props.left.icon : 'menu'}
+          icon={props.left.icon ? props.left.icon : 'menu'}
           onPress={props.left.onPress}
         />
       )}
