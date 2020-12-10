@@ -1,7 +1,7 @@
 import React from 'react';
 import Topbar from '../components/Topbar';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import CategoryTwo from './CategoryTwo';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import ChartUI from './ChartUI';
 import ChatUI from './ChatUI';
 const Tab = createMaterialTopTabNavigator();
 
@@ -10,18 +10,18 @@ const Categories = (props) => {
     <>
       <Topbar
         title={'Categories'}
-        left={{ onPress: () => props.navigation.toggleDrawer() }}
+        left={{onPress: () => props.navigation.toggleDrawer()}}
       />
       <Tab.Navigator>
         <Tab.Screen
           name="ChatUI"
           component={ChatUI}
-          options={{ title: 'Chat UI' }}
+          options={{title: 'Chat UI'}}
         />
         <Tab.Screen
-          name="CategoryTwo"
-          component={CategoryTwo}
-          options={{ title: 'Category Two' }}
+          name="ChartUI"
+          component={ChartUI}
+          options={{title: 'Chart UI'}}
         />
       </Tab.Navigator>
     </>
