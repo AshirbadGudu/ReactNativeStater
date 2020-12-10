@@ -40,20 +40,7 @@
 
 - `apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"`
 
-## Use React Navigation 5 In App
+## Change Application Name
 
-```
-yarn add
-       react-native-reanimated
-       react-native-gesture-handler
-       react-native-screens
-       react-native-safe-area-context
-       react-native-tab-view
-       @react-navigation/native
-       @react-native-community/masked-view
-       @react-navigation/drawer
-       @react-navigation/material-bottom-tabs
-       @react-navigation/stack
-       @react-navigation/material-top-tabs
-       react-native-paper
-```
+- Navigate to `app.json` and change displayName
+- Or Navigate to `android\app\src\main\res\values\strings.xml` and change `<string name="app_name"></string>` value
