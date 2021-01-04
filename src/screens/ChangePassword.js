@@ -1,18 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Button, Card} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
 import {PT_COLORS} from '../config';
 import {Header, PTTextInput} from '../components';
 
-const EditProfile = (props) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const ChangePassword = (props) => {
   return (
     <>
       <Header
-        title="Edit Profile"
+        title="Change Password"
         left={{
           icon: (
             <Ionicons name="chevron-back-outline" color={'#fff'} size={24} />
@@ -25,10 +22,10 @@ const EditProfile = (props) => {
       <ScrollView style={{padding: 14}}>
         <Card>
           <Card.Title
-            title="Edit Profile"
+            title="Change Password"
             left={(props) => (
               <Ionicons
-                name="person-add-outline"
+                name="key-outline"
                 color={PT_COLORS.secondaryDark}
                 {...props}
               />
@@ -38,17 +35,17 @@ const EditProfile = (props) => {
             <PTTextInput
               labelWrapperStyle={{backgroundColor: '#fff'}}
               style={{marginVertical: 10}}
-              label="Name"
+              label="Current Password"
             />
             <PTTextInput
               labelWrapperStyle={{backgroundColor: '#fff'}}
               style={{marginVertical: 10}}
-              label="Email"
+              label="New Password"
             />
             <PTTextInput
               labelWrapperStyle={{backgroundColor: '#fff'}}
               style={{marginVertical: 10}}
-              label="Password"
+              label="Verify Password"
             />
           </Card.Content>
           <Card.Actions>
@@ -66,4 +63,4 @@ const EditProfile = (props) => {
   );
 };
 
-export default EditProfile;
+export default ChangePassword;

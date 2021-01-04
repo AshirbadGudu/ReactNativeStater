@@ -1,18 +1,20 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Categories from '../screens/Categories';
+
+import {CategoryDetails, Discover} from '../screens';
 
 const Stack = createStackNavigator();
 
-const CategoryStack = () => {
+const DiscoverStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Categories" component={Categories} />
+      <Stack.Screen name="Discover" component={Discover} />
+      <Stack.Screen name="CategoryDetails" component={CategoryDetails} />
     </Stack.Navigator>
   );
 };
 
-export default CategoryStack;
+export default DiscoverStack;

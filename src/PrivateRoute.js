@@ -1,71 +1,58 @@
 import React from 'react';
-import HomeStack from './stacks/HomeStack';
-import ProfileStack from './stacks/ProfileStack';
-import SearchStack from './stacks/SearchStack';
-import CartStack from './stacks/CartStack';
+import {DiscoverStack, BrowseStack, FavoritesStack, MoreStack} from './stacks';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Feather from 'react-native-vector-icons/Feather';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {COLORS} from './config/Colors';
-import CategoryStack from './stacks/CategoryStack';
+import {PT_COLORS} from './config';
 const Tab = createMaterialBottomTabNavigator();
 
 const PrivateRoute = () => {
   return (
     <Tab.Navigator shifting={true}>
       <Tab.Screen
-        name="HomeTab"
+        name="DiscoverTab"
         options={{
-          tabBarLabel: 'HOME',
+          tabBarLabel: 'Discover',
           tabBarIcon: ({color}) => (
-            <AntDesign name="home" color={color} size={26} />
+            <Ionicons name="compass-outline" color={color} size={24} />
           ),
-          tabBarColor: COLORS.LIGHT,
+          tabBarColor: PT_COLORS.primaryBlack,
         }}
-        component={HomeStack}
+        component={DiscoverStack}
       />
       <Tab.Screen
-        name="SearchTab"
+        name="BrowseTab"
         options={{
-          tabBarLabel: 'SEARCH',
+          tabBarLabel: 'Browse',
           tabBarIcon: ({color}) => (
-            <AntDesign name="search1" color={color} size={26} />
+            <Feather name="shopping-bag" color={color} size={24} />
           ),
-          tabBarColor: COLORS.LIGHTER,
+          tabBarColor: PT_COLORS.primaryBlack,
         }}
-        component={SearchStack}
+        component={BrowseStack}
       />
       <Tab.Screen
-        name="CategoryTab"
+        name="FavoritesTab"
         options={{
-          tabBarLabel: 'Categories',
+          tabBarLabel: 'Favorites',
           tabBarIcon: ({color}) => (
-            <AntDesign name="appstore-o" color={color} size={26} />
+            <AntDesign name="hearto" color={color} size={24} />
           ),
-          tabBarColor: COLORS.SOFTER,
+          tabBarColor: PT_COLORS.primaryBlack,
         }}
-        component={CategoryStack}
+        component={FavoritesStack}
       />
       <Tab.Screen
-        name="ProfileTab"
+        name="MoreTab"
         options={{
-          tabBarLabel: 'PROFILE',
+          tabBarLabel: 'More',
           tabBarIcon: ({color}) => (
-            <AntDesign name="user" color={color} size={26} />
+            <Feather name="more-horizontal" color={color} size={24} />
           ),
-          tabBarColor: COLORS.SOFTER,
+          tabBarColor: PT_COLORS.primaryBlack,
         }}
-        component={ProfileStack}
-      />
-      <Tab.Screen
-        name="CartTab"
-        options={{
-          tabBarLabel: 'Cart',
-          tabBarIcon: ({color}) => (
-            <AntDesign name="shoppingcart" color={color} size={26} />
-          ),
-          tabBarColor: COLORS.SOFTER,
-        }}
-        component={CartStack}
+        component={MoreStack}
       />
     </Tab.Navigator>
   );

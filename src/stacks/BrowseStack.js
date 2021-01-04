@@ -1,16 +1,18 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Cart from '../screens/Cart';
+import {Browse} from '../screens';
+
 const Stack = createStackNavigator();
-const CartStack = () => {
+
+const BrowseStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Cart" component={Cart} />
+      <Stack.Screen name="Browse" component={Browse} />
     </Stack.Navigator>
   );
 };
 
-export default CartStack;
+export default BrowseStack;
