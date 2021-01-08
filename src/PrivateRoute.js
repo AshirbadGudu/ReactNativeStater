@@ -9,7 +9,11 @@ const Tab = createMaterialBottomTabNavigator();
 
 const PrivateRoute = () => {
   return (
-    <Tab.Navigator shifting={true}>
+    <Tab.Navigator
+      shifting={false}
+      barStyle={{
+        backgroundColor: PT_COLORS.bottomBarColor,
+      }}>
       <Tab.Screen
         name="DiscoverTab"
         options={{

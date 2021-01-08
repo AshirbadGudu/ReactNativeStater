@@ -7,32 +7,26 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import {HEART_IMG, LOGO, WELCOME_IMG} from '../../assets';
-
-const ProductCard = ({productImg}) => {
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import {LOGO, WELCOME_IMG} from '../../assets';
+import {width} from '../../config/Style';
+const ProductCard = ({productImg, cardStyle, corner}) => {
+  const logoStyle = corner
+    ? {justifyContent: 'flex-start', alignItems: 'flex-start', padding: 10}
+    : {justifyContent: 'center', alignItems: 'center'};
+  const logoSize = corner ? {width: 40, height: 40} : {width: 60, height: 60};
   return (
-    <TouchableOpacity
-      style={{
-        resizeMode: 'cover',
-        justifyContent: 'center',
-        borderRadius: 8,
-        overflow: 'hidden',
-        margin: 5,
-      }}>
+    <TouchableOpacity style={{...styles.cardStyle, ...cardStyle}}>
       <ImageBackground source={productImg || WELCOME_IMG} style={styles.image}>
         <View
           style={{width: '100%', height: 300, backgroundColor: '#000000a0'}}>
           <View
             style={{
-              justifyContent: 'center',
               flex: 1,
-              marginTop: 60,
               flexDirection: 'row',
+              ...logoStyle,
             }}>
-            <Image
-              source={LOGO}
-              style={{width: 60, height: 60, borderRadius: 40}}
-            />
+            <Image source={LOGO} style={{borderRadius: 40, ...logoSize}} />
           </View>
           <View
             style={{
@@ -53,17 +47,9 @@ const ProductCard = ({productImg}) => {
                 top: -10,
                 left: 14,
               }}>
-              <Image
-                source={HEART_IMG}
-                style={{
-                  width: 15,
-                  height: 15,
-                  justifyContent: 'center',
-                  alignSelf: 'center',
-                }}
-              />
+              <AntDesign name="hearto" color={'#ddd'} size={20} />
             </View>
-            <View style={{paddingTop: 24, paddingLeft: 10}}>
+            <View style={{paddingTop: 20, paddingLeft: 10}}>
               <Text
                 style={{
                   color: '#000',
@@ -75,11 +61,11 @@ const ProductCard = ({productImg}) => {
               </Text>
               <Text style={{color: '#000'}}>What you could Get</Text>
               <View
-                style={{display: 'flex', flexDirection: 'row', marginTop: 8}}>
+                style={{display: 'flex', flexDirection: 'row', marginTop: 5}}>
                 <View
                   style={{
                     padding: 5,
-                    backgroundColor: 'red',
+                    backgroundColor: '#bf756c',
                     marginRight: 10,
                     borderRadius: 5,
                   }}>
@@ -88,7 +74,7 @@ const ProductCard = ({productImg}) => {
                 <View
                   style={{
                     padding: 5,
-                    backgroundColor: 'green',
+                    backgroundColor: '#edcf98',
                     marginRight: 10,
                     borderRadius: 5,
                   }}>
@@ -97,7 +83,7 @@ const ProductCard = ({productImg}) => {
                 <View
                   style={{
                     padding: 5,
-                    backgroundColor: 'blue',
+                    backgroundColor: '#839873',
                     marginRight: 10,
                     borderRadius: 5,
                   }}>
@@ -106,14 +92,14 @@ const ProductCard = ({productImg}) => {
                 <View
                   style={{
                     padding: 5,
-                    backgroundColor: 'brown',
+                    backgroundColor: '#839873',
                     marginRight: 10,
                     borderRadius: 5,
                   }}>
                   <Text style={{color: '#fff'}}>Steak</Text>
                 </View>
               </View>
-              <Text style={{color: '#888', fontSize: 12, marginTop: 14}}>
+              <Text style={{color: '#888', fontSize: 12, paddingVertical: 14}}>
                 Collect directly-250m
               </Text>
             </View>
@@ -130,5 +116,22 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: 'center',
+  },
+  cardStyle: {
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    borderRadius: 6,
+    overflow: 'hidden',
+    margin: 5,
+    width: width - 60,
+    alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });

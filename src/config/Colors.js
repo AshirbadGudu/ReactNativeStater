@@ -18,4 +18,5 @@ export const PT_COLORS = {
   primaryLight: '#f8f9fa',
   secondaryLight: '#e9ecef',
   splashColor: '#fff',
+  bottomBarColor: '#fff',
 };
